@@ -22,7 +22,8 @@ topics = client.get_topics()
 if '/turtle1/pose' in topics:
     print('Echo /turtle1/pose')
     listener = roslibpy.Topic(client, '/turtle1/pose', 'turtlesim/Pose')
-    listener.subscribe(lambda message: print(f"x: {message['x']} y: {message['y']}"))
+    # listener.subscribe(lambda message: print(f"x: {message['x']} y: {message['y']}"))
+    listener.subscribe(lambda message: print("x: {:.4f} y: {:.4f}".format(message['x'], message['y'])))
 else:
     print('Cannot find /turtle1/pose. Exit')
     client.terminate()

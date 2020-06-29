@@ -32,8 +32,9 @@ source ./devel/setup.sh                 # set up env
 ```
 #### Installation - Client side
 
+with pip3 for python 3
 ```
-pip install roslibpy
+pip3 install roslibpy
 ```
 #### Starting ROSBridge server and turtlesim
 
@@ -50,7 +51,7 @@ The argument `port` is optional, you can specify the WebSockets port by passing 
 
 ```
 roscd ros_tcp_server/../client
-python topic_echo.py
+python3 topic_echo.py
 ```
 
 #### Using services - Request ro clear the trajectory

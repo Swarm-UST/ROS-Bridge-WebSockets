@@ -1,9 +1,8 @@
 ## ROSBridge-Websockets
----
 
 This repo illustrates how to subscribe to topics and request service from server on a non-ROS client by using [rosbridge_suites](http://ros.org/wiki/rosbridge_suite) and [roslibpy](https://github.com/gramaziokohler/roslibpy).
 
-With the two scripts under the [client](./client) folder, non-ROS clients can echo `\turtle\pose` and request to clean the trajectory of the turtle.
+With the two scripts under the [client](./client) folder, non-ROS clients can echo `/turtle/pose` and request to clean the trajectory of the turtle.
 
 ### Dependencies
 
@@ -39,15 +38,13 @@ pip3 install roslibpy
 #### Starting ROSBridge server and turtlesim
 
 ```
-roslaunch ros_tcp_server startRosServer.launch [port:=1234]
+roslaunch ros_tcp_server startRosServer.launch [port:=9091]
 ```
-The argument `port` is optional, you can specify the WebSockets port by passing it to roslaunch.
+The argument `port` is optional, you can specify the WebSockets port by passing it to roslaunch(`DEFAULT` **9091**).
 
-#### Subscribing to `\turtle\pose`
+#### Subscribing to `/turtle/pose`
 
 > Attention: Please set the `url` and `port` inside the `config.ini` correctly before running the scripts. 
-
-> Attention: `roscd` is necessary. Please run the scripts under the same folder as the `config.ini`. Otherwise, the interpreter is not able to resolve the path of `config.ini`.
 
 ```
 roscd ros_tcp_server/../client
@@ -57,5 +54,5 @@ python3 topic_echo.py
 #### Using services - Request ro clear the trajectory
 
 ```
-python service_request.py
+python3 service_request.py
 ```

@@ -38,7 +38,7 @@ pip3 install roslibpy
 #### Starting ROSBridge server and turtlesim
 
 ```
-roslaunch ros_tcp_server startRosServer.launch [port:=9091]
+roslaunch ros_websocket_server startRosServer.launch [port:=9091]
 ```
 The argument `port` is optional, you can specify the WebSockets port by passing it to roslaunch(`DEFAULT` **9091**).
 
@@ -47,7 +47,7 @@ The argument `port` is optional, you can specify the WebSockets port by passing 
 > Attention: Please set the `url` and `port` inside the `config.ini` correctly before running the scripts. 
 
 ```
-roscd ros_tcp_server/../client
+roscd ros_websocket_server/../client
 python3 topic_echo.py
 ```
 
